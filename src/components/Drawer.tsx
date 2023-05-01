@@ -4,12 +4,13 @@ const Drawer = () => {
   const { isDrawerOpen, drawerToggle } = useDrawerStore();
 
   return (
-    <div className="drawer">
+    <div className="absolute drawer">
       <input
         id="my-drawer"
         type="checkbox"
         className="drawer-toggle"
         checked={isDrawerOpen}
+        readOnly
       />
       <div className="drawer-side">
         <label

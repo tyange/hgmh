@@ -1,4 +1,5 @@
 import { useDrawerStore } from "../store/drawer";
+import Drawer from "./Drawer";
 
 const Header = () => {
   const { drawerToggle } = useDrawerStore();
