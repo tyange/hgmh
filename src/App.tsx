@@ -1,9 +1,11 @@
-function App() {
+import Layout from "./components/Layout";
+
+const App = () => {
   return (
-    <>
-      <p className="text-gray-400">hgmh</p>
-    </>
+    <Layout>
+      <p>hgmh</p>
+    </Layout>
   );
-}
+};
 
 export default App;
