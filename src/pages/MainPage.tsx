@@ -3,8 +3,17 @@ import MainLayout from "../components/layouts/MainLayout.tsx";
 export default function MainPage() {
   return (
     <MainLayout>
-      <section>section 1</section>
-      <section>section 2</section>
+      <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+        <section className="h-screen snap-start bg-amber-100">
+          section 1
+        </section>
+        <section className="h-screen snap-start bg-amber-100">
+          section 2
+        </section>
+        <section className="h-screen snap-start bg-amber-100">
+          section 3
+        </section>
+      </div>
     </MainLayout>
   );
 }
