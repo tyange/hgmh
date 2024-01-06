@@ -2,8 +2,8 @@ import { TypeAnimation } from "react-type-animation";
 
 export default function Intro() {
   return (
-    <div className="relative">
-      <div>
+    <div className="relative w-full h-full">
+      <div className="absolute top-1/4 left-5">
         <TypeAnimation
           sequence={[
             "한국문학의",
@@ -14,7 +14,7 @@ export default function Intro() {
           ]}
           wrapper="span"
           cursor={true}
-          className="font-serif text-7xl"
+          className="inline-block font-serif break-words text-7xl"
         />
       </div>
     </div>
