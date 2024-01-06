@@ -1,7 +1,9 @@
+import { Outlet } from "@tanstack/react-router";
+
 function App() {
   return (
     <>
-      <p className="text-red-200">hi</p>
+      <Outlet />
     </>
   );
 }
