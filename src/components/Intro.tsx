@@ -6,12 +6,8 @@ import itorokImg from "../assets/books/itorok.jpg";
 import omletImg from "../assets/books/omlet.jpg";
 import sangmulsungImg from "../assets/books/sangmulsung.jpg";
 import sonyunOndaImg from "../assets/books/sonyun-onda.jpg";
-import { useState } from "react";
 
 export default function Intro() {
-  const [bookOverlayOpacity, setBookOverlayOpacity] = useState(0);
-  const [bookZIndex, setBookZIndex] = useState("auto");
-
   const textVariant = {
     initial: {
       x: -500,
@@ -27,19 +23,24 @@ export default function Intro() {
     },
   };
 
-  const bookMouseOverHandler = () => {
-    setBookOverlayOpacity(90);
-    setBookZIndex("10");
-  };
-
-  const bookMouseOutHandler = () => {
-    setBookOverlayOpacity(0);
-    setBookZIndex("auto");
+  const imageVariant = {
+    initial: {
+      y: 500,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.3,
+      },
+    },
   };
 
   return (
-    <div className="relative w-full h-full">
-      <div className="absolute flex flex-col gap-10 top-1/4 -translate-y-1/2 left-5 w-[764px]">
+    <div className="relative w-full h-full overflow-hidden bg-amber-50">
+      <div className="absolute flex flex-col gap-10 top-1/4 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[764px]">
         <TypeAnimation
           sequence={[
             "한국문학의",
@@ -75,48 +76,48 @@ export default function Intro() {
           </motion.p>
         </motion.div>
       </div>
-      <div className="absolute bottom-0 right-0 z-10 w-full h-1/3">
-        <div className="relative w-full h-full">
-          <div
-            className={`absolute w-24 bottom-0 right-[458px]  box-content  hover:w-52 transition-all hover:z-30 z-${bookZIndex}`}
-            onMouseOver={bookMouseOverHandler}
-            onMouseOut={bookMouseOutHandler}
+      <div className="absolute bottom-0 right-0 z-10 w-full h-full">
+        <motion.div
+          className="relative w-full h-full"
+          variants={imageVariant}
+          initial="initial"
+          animate="animate"
+        >
+          <motion.a
+            className="absolute w-24 bottom-0 right-[458px]  box-content  hover:w-52 transition-all hover:z-10 "
+            variants={imageVariant}
           >
             <img className="w-full" src={dwingGunenunImg} />
-          </div>
-          <div
-            className={`absolute bottom-0 w-36 right-[315px]  box-content  hover:w-52 transition-all hover:z-30 z-${bookZIndex}`}
-            onMouseOver={bookMouseOverHandler}
-            onMouseOut={bookMouseOutHandler}
+          </motion.a>
+          <motion.a
+            className="absolute bottom-0 w-36 right-[315px]  box-content  hover:w-52 transition-all hover:z-10 "
+            variants={imageVariant}
           >
             <img className="w-full" src={sangmulsungImg} />
-          </div>
-          <div
-            className={`box-content absolute bottom-0 transition-all w-52 right-32 hover:w-60 hover:z-30 z-${bookZIndex}`}
-            onMouseOver={bookMouseOverHandler}
-            onMouseOut={bookMouseOutHandler}
+          </motion.a>
+          <motion.a
+            className="box-content absolute bottom-0 transition-all w-52 right-32 hover:w-60 hover:z-10"
+            variants={imageVariant}
+            href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=40869703"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img className="w-full" src={sonyunOndaImg} />
-          </div>
-          <div
-            className={`box-content absolute bottom-0 transition-all w-36 right-5 hover:w-52 hover:z-30 z-${bookZIndex}`}
-            onMouseOver={bookMouseOverHandler}
-            onMouseOut={bookMouseOutHandler}
+          </motion.a>
+          <motion.a
+            className="box-content absolute bottom-0 transition-all w-36 right-5 hover:w-52 hover:z-10"
+            variants={imageVariant}
           >
             <img className="w-full" src={omletImg} />
-          </div>
-          <div
-            className={`box-content absolute bottom-0 right-0 w-20 transition-all hover:w-52 hover:z-30 z-${bookZIndex}`}
-            onMouseOver={bookMouseOverHandler}
-            onMouseOut={bookMouseOutHandler}
+          </motion.a>
+          <motion.a
+            className="box-content absolute bottom-0 right-0 w-20 transition-all hover:w-52 hover:z-10"
+            variants={imageVariant}
           >
             <img className="w-full" src={itorokImg} />
-          </div>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
-      <div
-        className={`w-full h-full opacity-${bookOverlayOpacity} bg-black transition-all duration-200 z-20`}
-      ></div>
     </div>
   );
 }
