@@ -1,17 +1,10 @@
-import dynamic from "next/dynamic";
-
-const BlockEditor = dynamic(
-  () => import("@/components/block-editor/block-editor"),
-  {
-    ssr: false,
-  },
-);
+import EditorForm from "@/components/editor-form/editor-form";
 
 export default function Write() {
   return (
     <main>
       <p className="text-red-600">write</p>
-      <BlockEditor />
+      <EditorForm />
     </main>
   );
 }
